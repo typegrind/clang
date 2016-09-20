@@ -28,6 +28,7 @@
 #include "llvm/Option/Option.h"
 #include "llvm/Support/DynamicLibrary.h"
 #include "llvm/Support/ErrorHandling.h"
+#include "typegrind/clang/TypegrindWrapperAction.h"
 using namespace clang;
 using namespace llvm::opt;
 
@@ -128,6 +129,11 @@ CreateFrontendAction(CompilerInstance &CI) {
     return nullptr;
 
   const FrontendOptions &FEOpts = CI.getFrontendOpts();
+
+  if (FEOpts.Typegrind) {
+    Act = llvm::make_unique<typegrind::TypegrindWrapperAction>(std::move(Act));
+  }
+
 
   if (FEOpts.FixAndRecompile) {
     Act = llvm::make_unique<FixItRecompile>(std::move(Act));

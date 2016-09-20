@@ -158,6 +158,7 @@ public:
                                            ///< files into the PCM file.
   unsigned IncludeTimestamps : 1;          ///< Whether timestamps should be
                                            ///< written to the produced PCH file.
+  unsigned Typegrind : 1;                  ///< Run typegrind
 
   CodeCompleteOptions CodeCompleteOpts;
 

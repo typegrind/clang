@@ -115,7 +115,7 @@ const DriverSuffix *FindDriverSuffix(StringRef ProgName) {
       {"cc", nullptr},
       {"cpp", "--driver-mode=cpp"},
       {"cl", "--driver-mode=cl"},
-      {"++", "--driver-mode=g++"},
+      {"++", "--driver-mode=g++"}
   };
 
   for (size_t i = 0; i < llvm::array_lengthof(DriverSuffixes); ++i)

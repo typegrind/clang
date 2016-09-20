@@ -677,6 +677,8 @@ def token_cache : Separate<["-"], "token-cache">, MetaVarName<"<path>">,
   HelpText<"Use specified token cache file">;
 def detailed_preprocessing_record : Flag<["-"], "detailed-preprocessing-record">,
   HelpText<"include a detailed record of preprocessing actions">;
+def typegrind : Flag<["-"], "typegrind">,
+  HelpText<"Runs typegrind on the source">;
 
 //===----------------------------------------------------------------------===//
 // CUDA Options

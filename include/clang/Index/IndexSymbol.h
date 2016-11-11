@@ -66,8 +66,9 @@ enum class SymbolSubKind : uint8_t {
   UnitTest                      = 1 << 3,
   IBAnnotated                   = 1 << 4,
   IBOutletCollection            = 1 << 5,
+  GKInspectable                 = 1 << 6,
 };
-static const unsigned SymbolSubKindBitNum = 6;
+static const unsigned SymbolSubKindBitNum = 7;
 typedef unsigned SymbolSubKindSet;
 
 /// Set of roles that are attributed to symbol occurrences.
@@ -88,8 +89,10 @@ enum class SymbolRole : uint16_t {
   RelationOverrideOf  = 1 << 11,
   RelationReceivedBy  = 1 << 12,
   RelationCalledBy    = 1 << 13,
+  RelationExtendedBy  = 1 << 14,
+  RelationAccessorOf  = 1 << 15,
 };
-static const unsigned SymbolRoleBitNum = 14;
+static const unsigned SymbolRoleBitNum = 16;
 typedef unsigned SymbolRoleSet;
 
 /// Represents a relation to another symbol for a symbol occurrence.

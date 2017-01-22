@@ -36,4 +36,4 @@ docs/analyzer/_build
 # debug info testsuite
 test/debuginfo-tests
 include/typegrind
-lib/Typegrind
+lib/typegrind

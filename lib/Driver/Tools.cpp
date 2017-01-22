@@ -735,6 +735,14 @@ void Clang::AddPreprocessingOptions(Compilation &C, const JobAction &JA,
                                  TC.AddClangCXXStdlibIncludeArgs(Args, CmdArgs);
                                });
 
+  if (true /* TODO: #typegrind is typegrind */) {
+    // forAll add typegrind include directories
+    forAllAssociatedToolChains(C, JA, getToolChain(),
+                               [&Args, &CmdArgs](const ToolChain &TC) {
+                                 TC.AddTypegrindIncludeArgs(Args, CmdArgs);
+                               });
+  }
+
   // Add system include arguments for all targets but IAMCU.
   if (!IsIAMCU)
     forAllAssociatedToolChains(C, JA, getToolChain(),

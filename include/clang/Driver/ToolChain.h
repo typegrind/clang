@@ -386,6 +386,11 @@ public:
   AddClangSystemIncludeArgs(const llvm::opt::ArgList &DriverArgs,
                             llvm::opt::ArgStringList &CC1Args) const;
 
+  /// \brief Add the Typegrind include directories
+  virtual void
+  AddTypegrindIncludeArgs(const llvm::opt::ArgList &DriverArgs,
+                            llvm::opt::ArgStringList &CC1Args) const;
+
   /// \brief Add options that need to be passed to cc1 for this target.
   virtual void addClangTargetOptions(const llvm::opt::ArgList &DriverArgs,
                                      llvm::opt::ArgStringList &CC1Args) const;

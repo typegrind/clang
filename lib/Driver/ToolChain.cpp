@@ -524,6 +524,16 @@ void ToolChain::AddClangSystemIncludeArgs(const ArgList &DriverArgs,
   // Each toolchain should provide the appropriate include flags.
 }
 
+void ToolChain::AddTypegrindIncludeArgs(const ArgList &DriverArgs,
+                                          ArgStringList &CC1Args) const {
+  // On linux, headers should be in the system include folder
+  // On any platform, if TYPEGRIND_ROOT is specified, TYPEGRIND_ROOT/include is used
+  if (const char *typegrind_root = getenv("TYPEGRIND_ROOT")) {
+    addSystemInclude(DriverArgs, CC1Args, StringRef { typegrind_root } + "/include/");
+  }
+  // On Windows: TODO
+}
+
 void ToolChain::addClangTargetOptions(const ArgList &DriverArgs,
                                       ArgStringList &CC1Args) const {
 }
